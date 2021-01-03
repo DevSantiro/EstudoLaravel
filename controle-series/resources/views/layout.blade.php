@@ -10,6 +10,30 @@
         <script src="https://kit.fontawesome.com/c1e0209272.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2 d-flex justify-content-between">
+        <a class="navbar navbar-expand-lg" href="{{ route('listar_series') }}">Home</a>
+        @auth
+            <div>
+                <span class="mr-5"> <i style="color: blue" class="fas fa-user"></i> <b> {{ auth()->user()->name }} </b> </span>
+                <a href="/sair" class="text-danger"> <i class="fas fa-sign-out-alt"></i> Sair</a>
+            </div>
+        @endauth
+
+        @guest
+            <div>
+                <a href="{{ route('listar_series') }}"> <i class="fas fa-user"></i> Convidado</a>
+                <b>/</b>
+                <a href="{{ route('entrar') }}"> <i class="fas fa-sign-in-alt"></i> Realizar Login</a>
+            </div>
+        @endguest
+            
+        
+
+        
+        
+    </nav>
+
     <div class="container">
         <div class="jumbotron">
             <h1>@yield('cabecalho')</h1>
